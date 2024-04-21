@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <div class="container">
+                    <a class="navbar-brand" href="/">EVA</a>
+                </div>    
+                <li><a href="/home">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                
+                
+                  
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='event_image.jpg') }}" alt="Event Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h1>Welcome to Event Planning Assistant</h1>
+                <p>Your go-to platform for seamless event planning. Plan and manage your events effortlessly with
+                    EVA.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat.</p>
+        </div>
+        
+
+    
+</body>
+
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planning Assistant</title>
+ 
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">EVA</a>
+            
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                     
+                    
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <h1>Event List</h1>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.name }} - {{ event.date }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Event</h2>
+    <form action="/add_event" method="post">
+        <label for="name">Event Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="date">Event Date:</label>
+        <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" required>
+        <br>
+        <button type="submit">Add Event</button>
+    </form>
+</body>
+</html> -->

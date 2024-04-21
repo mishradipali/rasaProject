@@ -1,0 +1,141 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(122, 81, 150);
+}
+
+/* Navigation Bar Styles */
+
+.navbar{
+    background-color: black;
+    border-radius: 0px;
+  }
+  .container{
+    float: right;
+            color: white;
+            padding: 12px 75px;
+  }
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    
+}
+.navbar li{
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+}
+.navbar ul{
+    overflow: auto;
+}
+.navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: white;
+}
+
+
+.navbar input{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3px 17px;
+    width: 129px;
+}
+.navbar li a:hover{
+    color: red
+}
+
+
+/* Main Section Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* .mt-4 {
+    margin-top: 4rem;
+} */
+img {
+    display: block;
+    /* margin-left: auto;
+    margin-right: auto; */
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+
+/* About Us Section Styles */
+#about {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .navbar-nav {
+        margin: 10px 0;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+    }
+}
+
+
+
+
+form {
+    margin-top: 20px;
+}
+
+form input,
+form button {
+    margin-right: 10px;
+}
+
+/* Style for Add Event Form */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+

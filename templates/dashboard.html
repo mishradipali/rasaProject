@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Assistant Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #383131;
+        }
+
+        #chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #chat-messages {
+            height: 300px;
+            overflow-y: scroll;
+            padding: 20px;
+        }
+
+        #user-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #send-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <div id="user-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+
+    <!-- <div id="rasa-chat-widget" data-websocket-url="http://0.0.0.0:5005"></div>
+<script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script> -->
+    
+    <script>
+        function sendMessage() {
+            // Get user input from the input field
+            var userInput = document.getElementById('message-input').value;
+
+            // Display user message in the chat window
+            displayUserMessage(userInput);
+
+            // Send user message to Rasa
+            sendToRasa(userInput);
+
+            // Clear the input field
+            document.getElementById('message-input').value = '';
+        }
+
+
+        function sendToRasa(userInput) {
+            // Define the Rasa server endpoint
+            var rasaEndpoint = 'http://localhost:5005/webhooks/rest/webhook';  
+
+
+            var requestData = {
+                message: userInput
+            };
+
+
+            // Make a POST request to the Rasa server
+            fetch(rasaEndpoint, {
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestData),
+
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Process the response from Rasa (data contains the bot's reply)
+                    displayBotResponse(data);
+                })
+                .catch(error => {
+                    console.error('Error sending message to Rasa:', error);
+                });
+        }
+
+        function displayUserMessage(message) {
+            var chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += '<div>You: ' + message + '</div>';
+            // Scroll to the bottom to show the latest messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function displayBotResponse(responseData) {
+            var chatMessages = document.getElementById('chat-messages');
+
+            // Display the bot's response
+            if (responseData && responseData.length > 0) {
+                responseData.forEach(response => {
+                    chatMessages.innerHTML += '<div>EVA: ' + response.text + '</div>';
+                });
+            }
+
+            // Scroll to the bottom to show the latest messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
